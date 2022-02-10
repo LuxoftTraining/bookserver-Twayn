@@ -14,8 +14,8 @@ class TestDataGenerator {
 
     @EventListener(ApplicationReadyEvent::class)
     fun generateData() {
-        generateMeaningfulData()
         generateRandomData()
+        generateMeaningfulData()
         println("Data generated")
     }
 
