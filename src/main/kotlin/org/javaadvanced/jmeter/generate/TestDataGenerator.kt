@@ -26,6 +26,7 @@ class TestDataGenerator {
         service.store("How to Date a White Woman: A Practical Guide for Asian Men")
         service.store("How to Avoid Huge Ships (Second Edition)")
         service.store("Cheese Problems Solved")
+        service.store("Cheese Problems Unsolved")
     }
 
     private fun generateRandomData(){
@@ -33,7 +34,13 @@ class TestDataGenerator {
             val nameIndex = Random.nextInt(1, 200_000)
             val surnameIndex = Random.nextInt(1, 200_000)
 
-            service.store("Book${bookIndex} by AuthorName${nameIndex} AuthorSurname${surnameIndex}")
+            service.store(bookName(bookIndex, nameIndex, surnameIndex))
+        }
+    }
+
+    companion object {
+        fun bookName(bookIndex: Int, nameIndex: Int, surnameIndex: Int): String {
+            return "Book${bookIndex} by AuthorName${nameIndex} AuthorSurname${surnameIndex}"
         }
     }
 }
