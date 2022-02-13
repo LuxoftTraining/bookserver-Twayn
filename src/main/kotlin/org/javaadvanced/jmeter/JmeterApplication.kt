@@ -9,5 +9,5 @@ import org.springframework.cache.annotation.EnableCaching
 class JmeterApplication
 
 fun main(args: Array<String>) {
-	runApplication<JmeterApplication>(*args)
+    runApplication<JmeterApplication>(*args)
 }

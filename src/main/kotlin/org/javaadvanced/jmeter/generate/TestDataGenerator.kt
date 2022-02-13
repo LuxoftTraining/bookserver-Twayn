@@ -29,7 +29,7 @@ class TestDataGenerator {
         service.store("Cheese Problems Unsolved")
     }
 
-    private fun generateRandomData(){
+    private fun generateRandomData() {
         repeat(100_000) { bookIndex ->
             val nameIndex = Random.nextInt(1, 200_000)
             val surnameIndex = Random.nextInt(1, 200_000)

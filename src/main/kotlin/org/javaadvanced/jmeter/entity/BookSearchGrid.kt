@@ -10,9 +10,11 @@ import javax.persistence.Table
 
 
 @Entity
-@Table(name = "BOOK_SEARCH_GRID", indexes = [
-    Index(columnList = "keyword", name = "keyword_idx")
-])
+@Table(
+    name = "BOOK_SEARCH_GRID", indexes = [
+        Index(columnList = "keyword", name = "keyword_idx")
+    ]
+)
 class BookSearchGrid {
     @Id
     @GeneratedValue
