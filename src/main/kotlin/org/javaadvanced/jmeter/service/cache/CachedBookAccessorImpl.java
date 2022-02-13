@@ -6,18 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class CachedRepositoryImpl implements CachedRepository {
+public class CachedBookAccessorImpl implements CachedBookAccessor {
     @Autowired
     private BookRepository repository;
 
-    @Override
-    public void store(Book book) {
-        repository.save(book);
-    }
-
-    @Cacheable("books")
-    public Iterable<Book> findAll() {
-        return repository.findAll();
+    @Cacheable("keywords")
+    public Iterable<Book> fetchByKeywords(List<String> keywords, Long keysCount) {
+        return repository.fetchByKeywords(keywords, keysCount);
     }
 }

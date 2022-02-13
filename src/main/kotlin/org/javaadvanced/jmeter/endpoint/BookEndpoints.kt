@@ -1,6 +1,5 @@
 package org.javaadvanced.jmeter.endpoint
 
-import org.javaadvanced.jmeter.entity.Book
 import org.javaadvanced.jmeter.service.BookService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.cache.annotation.CacheEvict
@@ -22,12 +21,12 @@ class BookEndpoints {
     }
 
     @GetMapping("/getAllBooks")
-    fun fetchAll(): Iterable<Book> {
-        return service.fetchAll()
+    fun fetchAll(): Iterable<String> {
+        return service.fetchAllTitles()
     }
 
     @GetMapping("/getByKeyword/{keyword}")
-    fun findBookByKeyword(@PathVariable keyword: String): Iterable<Book> {
+    fun findBookByKeyword(@PathVariable keyword: String): Iterable<String> {
         return service.fetchByKeyword(keyword)
     }
 }
