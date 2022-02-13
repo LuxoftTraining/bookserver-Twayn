@@ -12,7 +12,7 @@ class BookEndpoints {
     @Autowired
     private lateinit var service: BookService
 
-    @CacheEvict(value=["books"], allEntries=true)
+    @CacheEvict(value = ["keywords"], allEntries = true)
     @GetMapping("/addBook/{title}")
     fun addBook(@PathVariable title: String): String {
         service.store(title)

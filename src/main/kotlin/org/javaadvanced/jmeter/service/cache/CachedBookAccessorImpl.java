@@ -13,7 +13,7 @@ public class CachedBookAccessorImpl implements CachedBookAccessor {
     @Autowired
     private BookRepository repository;
 
-    @Cacheable("keywords")
+    @Cacheable(value = "keywords")
     public Iterable<Book> fetchByKeywords(List<String> keywords, Long keysCount) {
         return repository.fetchByKeywords(keywords, keysCount);
     }
