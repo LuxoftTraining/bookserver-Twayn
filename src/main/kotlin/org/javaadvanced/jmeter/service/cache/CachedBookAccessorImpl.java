@@ -7,6 +7,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class CachedBookAccessorImpl implements CachedBookAccessor {
@@ -16,5 +17,10 @@ public class CachedBookAccessorImpl implements CachedBookAccessor {
     @Cacheable(value = "keywords")
     public Iterable<Book> fetchByKeywords(List<String> keywords, Long keysCount) {
         return repository.fetchByKeywords(keywords, keysCount);
+    }
+
+    @Override
+    public Iterable<Book> findAllById(Set<Long> keywords) {
+        return repository.findAllById(keywords);
     }
 }
